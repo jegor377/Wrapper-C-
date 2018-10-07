@@ -6,5 +6,7 @@ It basically loads all files from the directory that you pass over to it and in 
 It's using Min-GW but I think it's going to work on linux equivalent also.
 
 Compiling:
+'''
 g++ -c main.cpp -std=c++11
 g++ -o wcpp main.o
+'''
