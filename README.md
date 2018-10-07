@@ -1,2 +1,2 @@
-# Wrapper-C-
+# Wrapper-CPP
 Little wrapper for C++ language. It links all hpp files inside a directory to single header file for C++.
