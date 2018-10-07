@@ -49,7 +49,7 @@ DirEntryList read_dir(char* dir_path) {
 	return result;
 }
 
-void replaceAll(String& str, const String& from, const String& to) {
+void replace_all(String& str, const String& from, const String& to) {
     if(from.empty())
         return;
     size_t start_pos = 0;
@@ -75,7 +75,7 @@ String get_element_name(String element_path) {
 	const String DIR_DELIMITER_CHAR = "/";
 	// Make it a bit easier
 	String dir_name = element_path;
-	replaceAll(dir_name, WINDOWS_DIR_CHAR, DIR_DELIMITER_CHAR);
+	replace_all(dir_name, WINDOWS_DIR_CHAR, DIR_DELIMITER_CHAR);
 	// Try to split path by path delimiter character.
 	dir_name = split(element_path, DIR_DELIMITER_CHAR[0]).back();
 	return dir_name;
@@ -163,7 +163,7 @@ String replace_imports(const String& init_content, const ModuleFileList& module_
 			auto module_file = module_files[module_index];
 			result.replace(start_pos, module_name.length()+1, module_file.module_content);
 			start_pos += module_file.module_content.length()+1; // +1 because END_NAME_CHARACTER is on the end of the imported module name ;)
-		}
+		} else throw "Bad module name.";
 	}
 	return result;
 }
