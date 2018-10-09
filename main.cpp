@@ -97,7 +97,6 @@ void save_result_file(String module_name, String result_file_content) {
 	const String OUTPUT_FILE_EXTENSION = ".hpp";
 	String filename = get_element_name(module_name) + OUTPUT_FILE_EXTENSION;
 	std::cout<<"Output file path: "<<filename<<std::endl;
-	std::cout<<filename<<std::endl;
 	std::fstream result_file(filename.c_str(), std::ios::out);
 	if(result_file.good()) {
 		std::cout<<"Creating output file..."<<std::endl;
