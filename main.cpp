@@ -163,7 +163,14 @@ String replace_imports(const String& init_content, const ModuleFileList& module_
 			auto module_file = module_files[module_index];
 			result.replace(start_pos, module_name.length()+1, module_file.module_content);
 			start_pos += module_file.module_content.length()+1; // +1 because END_NAME_CHARACTER is on the end of the imported module name ;)
-		} else throw "Bad module name.";
+		} else {
+			const char* err_msg_c = "Bad module name: ";
+			size_t size = strlen(err_msg_c)+module_name.length()+1;
+			char* err_msg = new char[size];
+			strcpy(err_msg, err_msg_c);
+			strcat(err_msg, module_name.c_str());
+			throw (const char*)(err_msg);
+		}
 	}
 	return result;
 }
